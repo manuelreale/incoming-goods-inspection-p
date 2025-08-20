@@ -1,0 +1,2 @@
+Data Retrieval
+Data is retrieved from the company knowledge vault, OEM and publicly shared documents, and company inspection history 

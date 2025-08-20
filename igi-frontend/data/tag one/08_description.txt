@@ -1,0 +1,2 @@
+Moving item to pickup Location
+The digital inspection is completed and will now move the item to the pickup location where it can be inspected

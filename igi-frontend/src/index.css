@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sectra: Sectra, serif;
+    --font-graphik: Graphik, sans-serif;
+  }
+/* =========================
+   GRAPHIK
+   ========================= */
+
+/* Thin (100) */
+@font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Thin Italic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* ExtraLight (200) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Extralight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Extralight Italic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Light (300) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Light Italic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Regular (400) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Regular Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Medium (500) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Medium Italic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* SemiBold (600) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Semibold Italic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Bold (700) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Bold Italic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Black (900) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Black Italic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* Super (950 or 1000) */
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Super.ttf") format("truetype");
+    font-weight: 950;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: Graphik;
+    src: url("./assets/fonts/Graphik-Super Italic.ttf") format("truetype");
+    font-weight: 950;
+    font-style: italic;
+    font-display: swap;
+  }
+  
+  /* =========================
+     GT SECTRA FINE
+     ========================= */
+  
+  /* Book (400) */
+  @font-face {
+    font-family: Sectra;
+    src: url("./assets/fonts/GT-Sectra-Fine-Book.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Regular (500) */
+  @font-face {
+    font-family: Sectra;
+    src: url("./assets/fonts/GT-Sectra-Fine-Regular.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Medium (600) */
+  @font-face {
+    font-family: Sectra;
+    src: url("./assets/fonts/GT-Sectra-Fine-Medium.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Bold (700) */
+  @font-face {
+    font-family: Sectra;
+    src: url("./assets/fonts/GT-Sectra-Fine-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  

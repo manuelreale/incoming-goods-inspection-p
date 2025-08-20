@@ -1,0 +1,2 @@
+Data Upload
+The different views of the items are uploaded to the cloud or data processing infrastructure

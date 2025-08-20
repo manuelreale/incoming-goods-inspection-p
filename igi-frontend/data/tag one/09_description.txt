@@ -1,0 +1,2 @@
+Item Inspection
+The inspector receives an report where the findings would be used to guide the inspection

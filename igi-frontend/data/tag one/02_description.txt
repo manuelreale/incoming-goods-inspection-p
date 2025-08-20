@@ -1,0 +1,2 @@
+Scanning Object
+The scanner will now capture the item from all the different sides

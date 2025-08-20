@@ -1,0 +1,2 @@
+Digital Inspection
+Object scan is compared to the reference item defined by the downloaded documentation
