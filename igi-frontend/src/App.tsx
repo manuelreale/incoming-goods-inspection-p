@@ -81,7 +81,7 @@ export default function App() {
           <Description tag={tag} animationState={animationState}/>
         </TopDisplay>
 
-        <BottomDisplay tag={tag} state={state}>
+        <BottomDisplay tag={tag} state={state} animationState={animationState}>
           <LoadingZone tag={tag} state={state} animationState={animationState}/>
         </BottomDisplay>
       </div>

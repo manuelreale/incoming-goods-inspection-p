@@ -1,0 +1,8 @@
+Inspection
+
+
+Change the text in the first line to change the result (do not change these lines below)
+Options are:
+Discarded
+Good
+Inspection

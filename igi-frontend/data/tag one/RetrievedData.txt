@@ -1,0 +1,7 @@
+partname-cad.stl
+partname-datasheet.pdf
+partname-technical-drawings.pdf
+partname-hd-images.png
+partname-QC-specsheet.csv
+partname-BOM.csv
+partname-defects-history.csv

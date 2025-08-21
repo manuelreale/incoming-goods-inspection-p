@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Cloud from "./Cloud"
 import Identification from "./Identification"
 import Retrieval from "./Retrieval"
+import RetrievedData from "./RetrievedData"
 import type { FSMState } from "./types";
 
 

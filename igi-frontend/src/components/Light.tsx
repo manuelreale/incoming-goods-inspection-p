@@ -7,15 +7,15 @@ interface LightProps {
 }
 
 const PRESETS: Record<LightProps['state'], { x: string; y: string; width: string; height: string }> = {
-  state1: { x: "0%",    y: "75%",    width: "40%", height: "40%" },
-  state1_1: { x: "20%",    y: "75%",    width: "20%", height: "20%" },
-  state2: { x: "50%",    y: "50%",    width: "40%", height: "75%" }, 
-  state3: { x: "50%",    y: "50%",    width: "40%", height: "75%" }, 
-  state4: { x: "50%",    y: "50%",    width: "40%", height: "75%" }, 
-  state4_1: { x: "50%",    y: "0%",    width: "40%",  height: "50%" }, 
-  state5: { x: "50%",    y: "50%",    width: "40%",  height: "50%" }, 
-  state6: { x: "75%",    y: "75%",    width: "40%",  height: "50%" }, 
-  state7: { x: "75%",    y: "75%",    width: "40%",  height: "50%" }, 
+  state1:   { x: "0%",     y: "75%",    width: "40%", height: "40%" },
+  state1_1: { x: "20%",    y: "75%",    width: "20%",  height: "20%" },
+  state2:   { x: "50%",    y: "50%",    width: "40%",  height: "75%" }, 
+  state3:   { x: "50%",    y: "50%",    width: "40%",  height: "75%" }, 
+  state4:   { x: "50%",    y: "50%",    width: "40%",  height: "75%" }, 
+  state4_1: { x: "50%",    y: "0%",     width: "40%",  height: "50%" }, 
+  state5:   { x: "50%",    y: "50%",    width: "40%",  height: "50%" }, 
+  state6:   { x: "75%",    y: "75%",    width: "40%",  height: "50%" }, 
+  state7:   { x: "75%",    y: "75%",    width: "40%",  height: "50%" }, 
 };
 
 export default function Light({ state }: LightProps) {
