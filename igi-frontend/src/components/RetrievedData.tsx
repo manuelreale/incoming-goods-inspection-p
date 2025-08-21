@@ -37,7 +37,11 @@ export default function RetrievedData({
         if (!res.ok) throw new Error("Not found");
         const text = await res.text();
         const items = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-        const mapped: Row[] = items.map(name => ({ name, href: `/data/${tag}/${name}`, icon: pickIcon(name) }));
+        const mapped: Row[] = items.map(name => ({
+          name,
+          href: `/data/${tag}/${name}`,
+          icon: pickIcon(name)
+        }));
         if (!cancelled) { setRows(mapped); setStatus("ready"); }
       } catch {
         if (!cancelled) { setRows([]); setStatus("error"); }
@@ -47,22 +51,23 @@ export default function RetrievedData({
     return () => { cancelled = true; };
   }, [tag]);
 
-  // Framer Motion variants for staggered entrance
+  // Parent controls the cascade; children use variants (no per-item manual delays)
   const listVariants = {
-    hidden: { opacity: 1 }, // keep list visible; we stagger children only
+    hidden: { opacity: 0 },
     show: {
       opacity: 1,
       transition: {
-        delayChildren: 0.1,   // wait a beat, then start
-        staggerChildren: 0.12 // each child 120ms after the previous
-      }
-    }
-  };
+        when: "beforeChildren",
+        delayChildren: 0.2,
+        staggerChildren: 0.5,
+      },
+    },
+  } as const;
 
   const itemVariants = {
     hidden: { opacity: 0, y: 8 },
-    show:   { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } }
-  };
+    show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+  } as const;
 
   return (
     <div className="w-full rounded-xl border border-[#A100FF]/50 bg-black/70 p-5">
@@ -84,8 +89,7 @@ export default function RetrievedData({
           variants={listVariants}
           initial="hidden"
           animate={status === "ready" ? "show" : "hidden"}
-          // key forces the animation to re-run when a new set of rows is loaded
-          key={status === "ready" ? rows.map(r => r.name).join("|") : "empty"}
+          key={`rows-${tag}-${rows.map(r => r.name).join("|")}`}
         >
           {rows.map((r) => (
             <motion.li

@@ -30,7 +30,7 @@ export default function Cloud({ tag, state, animationState}: CloudProps) {
                     transition:{ duration: 0.4, delay: 0}
                     }}
                     >
-                    <img src="/Cloud.svg" className='w-full h-1/2'/>
+                    <img src="/Cloud.svg" className='w-full h-1/3'/>
 
                     <div className="flex flex-row items-center justify-center w-full h-1/2">
                         <Flow tag={tag} state={state} animationState={animationState} offset={0.0}/>
