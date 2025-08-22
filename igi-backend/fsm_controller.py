@@ -1,3 +1,4 @@
+from turtle import setup
 from esp_serial import ESPSerial
 from gcode_serial import GCodeSerial
 from fsm_helpers import FSMHelpers
@@ -54,6 +55,7 @@ class FSMController(FSMHelpers):
 
     def state1(self):
         if self.on_enter(): 
+            self.setupGCODE()
             print("Entered state1 - waiting for tag1")
 
         tag = self.esp.readRFID("TAG1")

@@ -30,16 +30,28 @@ goto :eof
 :open_fullscreen
 set "URL=%~1"
 
+:: Resolve a browser path (Edge → Chrome → default)
 set "EDGE_X64=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
 set "EDGE_X86=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
 set "CHROME_X64=%ProgramFiles%\Google\Chrome\Application\chrome.exe"
 set "CHROME_X86=%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe"
 
-if exist "%EDGE_X64%"  ( start "" "%EDGE_X64%"  --start-fullscreen "%URL%" & goto :eof )
-if exist "%EDGE_X86%"  ( start "" "%EDGE_X86%"  --start-fullscreen "%URL%" & goto :eof )
-if exist "%CHROME_X64%"( start "" "%CHROME_X64%" --start-fullscreen "%URL%" & goto :eof )
-if exist "%CHROME_X86%"( start "" "%CHROME_X86%" --start-fullscreen "%URL%" & goto :eof )
+if exist "%EDGE_X64%"  ( set "BROWSER=%EDGE_X64%"  & goto :launch_full )
+if exist "%EDGE_X86%"  ( set "BROWSER=%EDGE_X86%"  & goto :launch_full )
+if exist "%CHROME_X64%"( set "BROWSER=%CHROME_X64%" & goto :launch_full )
+if exist "%CHROME_X86%"( set "BROWSER=%CHROME_X86%" & goto :launch_full )
 
-:: Fallback to default browser (fullscreen not guaranteed)
+:: Fallback to default browser (no guaranteed fullscreen)
 start "" "%URL%"
+goto :eof
+
+:launch_full
+:: Use PowerShell to start the browser, bring it to front, and press F11
+powershell -NoProfile -ExecutionPolicy Bypass -Command ^
+  "$p = Start-Process -FilePath '%BROWSER%' -ArgumentList '--new-window','%URL%' -WindowStyle Normal -PassThru;" ^
+  "Start-Sleep -Milliseconds 800;" ^
+  "$sh = New-Object -ComObject WScript.Shell;" ^
+  "$null = $sh.AppActivate($p.Id);" ^
+  "Start-Sleep -Milliseconds 150;" ^
+  "$sh.SendKeys('{F11}')"
 goto :eof
