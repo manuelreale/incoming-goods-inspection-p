@@ -4,7 +4,7 @@ setlocal
 :: --- Paths (safe even if parent has spaces) ---
 set "BACKEND_DIR=%~dp0igi-backend"
 set "FRONTEND_DIR=%~dp0igi-frontend"
-set "FRONTEND_PORT=3000"
+set "FRONTEND_PORT=5173"
 set "FRONTEND_URL=http://localhost:%FRONTEND_PORT%"
 
 echo === Launching Backend & Frontend ===
