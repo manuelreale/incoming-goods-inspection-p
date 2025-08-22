@@ -67,7 +67,7 @@ export default function App() {
         <AnimationManager tag={tag} state={state} animationState={animationState} changeAnimation={(newValue) => setAnimationState(newValue)} changeState={(newValue) => setState(newValue)}/>
         <Light state={state}/>
         <ItemIndicator state={state}/>
-        <DebugInfo tag={tag} state={state} animationState={animationState} changeState={(newValue) => setState(newValue)} changeTag={(newTag) => setTag(newTag)}/>
+        <DebugInfo tag={tag} state={state} animationState={animationState} changeState={(newValue) => setState(newValue)} changeTag={(newTag) => setTag(newTag)} changeAnimation={(newAnimation) => setAnimationState(newAnimation)}/>
 
         <TopDisplay tag={tag} state={state} animationState={animationState}>
           <IdleTop tag={tag} state={state} animationState={animationState}/>

@@ -24,18 +24,43 @@ class FSMController(FSMHelpers):
             "state": self.state,
             "tag": self.latestTag,
         }
+    
+    def setupGCODE(self):
+        #belt setup
+        self.gcode.send_gcode("M92 Y1484")          #steps per revolution
+        self.gcode.send_gcode("M201 Y2")            #max accel
+        self.gcode.send_gcode("M203 Y600")          #max speed
+        self.gcode.send_gcode("M205 Y0.01")         #jerk
+        #CameraSpin stup
+        self.gcode.send_gcode("M92 X3200")          #steps per revolution
+        self.gcode.send_gcode("M201 X1")            #max accel 
+        self.gcode.send_gcode("M203 X600")          #max speed
+        self.gcode.send_gcode("M205 X0.0001")       #jerk
+
+    def firstMovementToCenter(self):
+            self.gcode.send_gcode("G91")            #relative positioning
+            self.gcode.send_gcode("G1 Y26.5 F300")  #move 26.5 cm forward
+
+    def secondMovementToEnd(self):
+            self.gcode.send_gcode("G91")            #relative positioning
+            self.gcode.send_gcode("G1 Y26.5 F300")  #move 26.5 cm forward
+
+    def cameraSpin(self):
+            self.gcode.send_gcode("G1 X40 F600")    #move 40 revolution forward
+            self.gcode.send_gcode("G1 X-40 F600")   #move 40 revolution backwards
+
 
     # _____________ States ______________ #
 
     def state1(self):
-        if self.on_enter(): print("Entered state1 - waiting for tag1")
+        if self.on_enter(): 
+            print("Entered state1 - waiting for tag1")
 
         tag = self.esp.readRFID("TAG1")
         if tag!="empty" and tag!=None:
             self.tag1 = tag
             self.latestTag = tag
-            # send command to the conveyor belt to move
-            self.transition('state1_1')  # Manually transition
+            self.transition('state1_1')
     
     def state1_1(self):
         if self.on_enter(): print("Entered state1_1 - showing good loading info")   # State to show incoming good detected
@@ -44,39 +69,44 @@ class FSMController(FSMHelpers):
             self.transition('state2')   
 
     def state2(self):
-        if self.on_enter(): print("Entered state2 - moving conveyor and reading tag2")
-        # send command to the conveyor belt to move to the right
+        if self.on_enter(): 
+            print("Entered state2 - moving conveyor and reading tag2")
+            self.firstMovementToCenter()
 
-        tag = self.esp.readRFID("TAG2")
-        if tag!="empty" and tag!=None:
-            self.tag2 = tag
-            self.latestTag = tag
-            self.transition('state3')
+        if self.elapsed() >= 10.0:   
+            self.transition('state3')  
+
+        # tag = self.esp.readRFID("TAG2")           #Ignoring TAG2 for now
+        # if tag!="empty" and tag!=None:
+        #     self.tag2 = tag
+        #     self.latestTag = tag
+        #     self.transition('state3')
 
     def state3(self):
-        if self.on_enter(): print("Entered state3 - send command to move last bit")
+        if self.on_enter(): print("Entered state3 - Item reached center")
 
-        # send command to the conveyor belt to move a little bit more
         if self.elapsed() >= 2.0:   # delay to reach center
             self.transition('state4')   
 
     def state4(self):
-        if self.on_enter(): print("Entered state4 - send spin command and wait for scanning end")
+        if self.on_enter(): 
+            print("Entered state4 - send spin command and wait for scanning end")
+            self.cameraSpin()
 
-        # send command start spinning camera
-        if self.elapsed() >= 5.0:   # delay until end of spinning the camera
+        if self.elapsed() >= 20.0:   # delay until end of spinning the camera
             self.transition('state4_1')  
 
     def state4_1(self):
         if self.on_enter(): print("Entered state4_1 - Scan completed animations wait for it to end")
 
-        # send command start spinning camera
         if self.elapsed() >= 22.0:   # delay until end of spinning the camera
             self.transition('state5')  
 
     def state5(self):
-        if self.on_enter(): print("Entered state5 - moving to the end of the belt reading tag3")
-        # send command to the conveyor belt to move until the end
+        if self.on_enter(): 
+            print("Entered state5 - moving to the end of the belt reading tag3")
+            self.secondMovementToEnd()
+
         tag = self.esp.readRFID("TAG3")
         if tag!="empty" and tag!=None:
             self.tag3 = tag
@@ -105,7 +135,6 @@ class FSMController(FSMHelpers):
             return
         pass  
 
-# Shared instance
 # Shared instances
 gcode = GCodeSerial()
 gcode.connect()

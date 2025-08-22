@@ -10,7 +10,6 @@ interface DescriptionProps {
 
 // Text files
 const FILES = [
-  "00_description.txt",
   "01_description.txt",
   "02_description.txt",
   "03_description.txt",

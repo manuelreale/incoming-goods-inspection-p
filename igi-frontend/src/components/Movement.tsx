@@ -6,20 +6,20 @@ import type { FSMState } from "./types";
 
 
 
-interface IdentificaitonProps {
+interface MovementProps {
     tag: string | null
     state: FSMState
     animationState: number
 }
 
-export default function Identification({ tag, state, animationState}: IdentificaitonProps) {
+export default function Movement({ tag, state, animationState}: MovementProps) {
 
 
     return (
         
         <motion.div className="absolute z-50 flex flex-col items-center justify-center pointer-events-auto w-1/2 h-full">
             <AnimatePresence mode="wait">
-                {animationState == 5 && (
+                {(animationState == 1 || animationState == 8) && (
                     <motion.div 
                     className="flex flex-col items-center justify-center 1/3 h-1/3"
                     initial={{ opacity: 0, y: 10}}
@@ -31,7 +31,7 @@ export default function Identification({ tag, state, animationState}: Identifica
                     }}
                     >
                     <DotLottieReact
-                        src="./Identification.lottie"
+                        src="./Movement.lottie"
                         loop
                         autoplay
                     />
