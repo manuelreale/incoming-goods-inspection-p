@@ -131,7 +131,7 @@ export default function CameraOverlay({ boxes, state }: CameraOverlayProps) {
         className='absolute w-full h-full bg-black/80 flex flex-col justify-center items-center'
         initial={{ opacity: 0}}
             animate={{ opacity: 1,
-            transition:{ duration: 0.5, delay: 10.5}
+            transition:{ duration: 0.5, delay: 30.5}
             }}
         >
           <motion.img 
@@ -145,7 +145,7 @@ export default function CameraOverlay({ boxes, state }: CameraOverlayProps) {
         </motion.div>
       </div>
     </motion.div>
-    <ProgressBar state={state} duration={10} delay={2}/>
+    <ProgressBar state={state} duration={30} delay={2}/>
     </div>
   )
 }

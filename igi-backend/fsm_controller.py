@@ -95,7 +95,7 @@ class FSMController(FSMHelpers):
             print("Entered state4 - send spin command and wait for scanning end")
             self.cameraSpin()
 
-        if self.elapsed() >= 20.0:   # delay until end of spinning the camera
+        if self.elapsed() >= 30.0:   # delay until end of spinning the camera
             self.transition('state4_1')  
 
     def state4_1(self):
