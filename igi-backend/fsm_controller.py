@@ -75,7 +75,7 @@ class FSMController(FSMHelpers):
             print("Entered state2 - moving conveyor and reading tag2")
             self.firstMovementToCenter()
 
-        if self.elapsed() >= 10.0:   
+        if self.elapsed() >= 7.0:   
             self.transition('state3')  
 
         # tag = self.esp.readRFID("TAG2")           #Ignoring TAG2 for now
@@ -108,6 +108,9 @@ class FSMController(FSMHelpers):
         if self.on_enter(): 
             print("Entered state5 - moving to the end of the belt reading tag3")
             self.secondMovementToEnd()
+
+        if self.elapsed() >= 7.0:   # delay until end of spinning the camera
+            self.transition('state6')  
 
         tag = self.esp.readRFID("TAG3")
         if tag!="empty" and tag!=None:

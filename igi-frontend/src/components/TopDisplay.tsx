@@ -17,7 +17,7 @@ interface TopDisplayProps {
 
 export default function TopDisplay({ tag, state, animationState, children }: TopDisplayProps) {
     return (
-        <div className='flex flex-row items-center h-auto w-full aspect-[16/8] z-1 relative'>
+        <div className='flex flex-row items-center h-auto w-full aspect-[16/9] z-1 relative'>
             <Cloud tag={tag} state={state} animationState={animationState}/>
             <Identification tag={tag} state={state} animationState={animationState}/>
             <Movement tag={tag} state={state} animationState={animationState}/>

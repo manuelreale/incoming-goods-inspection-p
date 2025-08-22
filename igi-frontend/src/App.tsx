@@ -63,7 +63,7 @@ export default function App() {
   }, [])
 
   return (
-      <div className="relative flex flex-col items-center justify-top h-full w-full text-white overflow-hidden bg-black"> 
+      <div className="relative flex flex-col items-center justify-top h-screen w-full text-white overflow-hidden bg-black"> 
         <AnimationManager tag={tag} state={state} animationState={animationState} changeAnimation={(newValue) => setAnimationState(newValue)} changeState={(newValue) => setState(newValue)}/>
         <Light state={state}/>
         <ItemIndicator state={state}/>
