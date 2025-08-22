@@ -38,7 +38,7 @@ export default function IdleTop({ tag, state, animationState}: IdleTopProps) {
                     </p>
                 </div>
                 <div className="flex flex-col w-full h-full px-16 py-32 justify-center">
-                    <video src="Video.mp4" autoPlay muted className="w-full mb-8 rounded-xl"></video>
+                    <video src="Video.mp4" autoPlay muted className="w-full h-auto mb-8 rounded-xl"></video>
                 </div>
             </motion.div>
             )}
