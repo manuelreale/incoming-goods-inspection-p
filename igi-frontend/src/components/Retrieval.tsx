@@ -20,8 +20,8 @@ export default function Retrieval({ tag, state, animationState }: RetrievalProps
             animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }} // no delay
             exit={{ opacity: 0, y: -10, transition: { duration: 0.4 } }}
           >
-            <img src="/Retrieval.svg" className="w-1/2 h-1/2" />
-            <div className="flex flex-row items-center justify-center w-full h-full mb-8">
+            <img src="/Retrieval.svg" className="w-[25vw] h-auto" />
+            <div className="flex flex-row items-center justify-center w-full h-[8vw] mb-8">
               <Flow tag={tag} state={state} animationState={animationState} offset={0.0} direction="down" durationSec={4} />
               <Flow tag={tag} state={state} animationState={animationState} offset={0.3} direction="down" durationSec={4} />
               <Flow tag={tag} state={state} animationState={animationState} offset={0.6} direction="down" durationSec={4} />

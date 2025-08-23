@@ -99,7 +99,7 @@ export default function Description({ tag, animationState }: DescriptionProps) {
   }, [tag, animationState])
 
   return (
-    <div className="flex flex-col items-left text-white px-8 pl-32 w-1/2">
+    <div className="flex flex-col items-left text-white px-8 pl-32 w-1/2 pr-[4vw]">
         <AnimatePresence mode="wait">
           {animationState != 0 && (
           <motion.div 
@@ -125,17 +125,17 @@ export default function Description({ tag, animationState }: DescriptionProps) {
             />)}
 
             <motion.div
-              className="flex flex-col items-left ml-4 w-full"
+              className="flex flex-col items-left ml-[1.2vw] w-full"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4, delay: 0.6 }}
             >
-              <h1 className="text-4xl font-bold w-full">
+              <h1 className="text-[2.3vw]/[2.6vw] font-bold w-full">
                 {title}
               </h1>
 
-              <p className="font-sectra text-3xl font-[100] whitespace-pre-wrap mt-3 w-full">
+              <p className="font-sectra text-[2vw]/[2.6vw] font-[100] whitespace-pre-wrap mt-3 w-full">
                 {description}
               </p>
 

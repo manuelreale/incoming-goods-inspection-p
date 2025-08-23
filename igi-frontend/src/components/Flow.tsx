@@ -37,7 +37,7 @@ export default function Flow({
       : ["-66.6667%", "-33.3333%", "0%"];
 
   return (
-    <div className="top-0 w-2 h-full overflow-hidden blur-[1px] mr-10">
+    <div className="top-0 w-[0.5vw] h-full overflow-hidden blur-[1px] mr-[2vw]">
       <motion.div
         className="relative w-full h-[300%] flex flex-col will-change-transform"
         animate={{ y: keyframes }}

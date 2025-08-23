@@ -70,8 +70,8 @@ export default function RetrievedData({
   } as const;
 
   return (
-    <div className="w-full rounded-xl border border-[#A100FF]/50 bg-black/70 p-5">
-      <h3 className="mb-3 text-lg font-semibold text-white">{title}</h3>
+    <div className="w-fit pr-[5vw] rounded-xl border border-[#A100FF]/50 bg-black/70 p-5">
+      <h3 className="mb-3 text-[1.4vw] font-semibold text-white">{title}</h3>
 
       {status === "loading" && <div className="text-sm text-gray-400">Loading files…</div>}
       {status === "error" && (
@@ -100,14 +100,14 @@ export default function RetrievedData({
               <img
                 src={r.icon}
                 alt=""
-                className="h-[18px] w-[18px]"
+                className="h-[1vw] w-[1vw]"
                 aria-hidden
                 loading="eager"
                 decoding="async"
               />
               <a
                 href={r.href}
-                className="text-gray-200 hover:text-white hover:underline"
+                className="text-gray-200 text-[1vw]/[1.2vw]"
               >
                 {r.name}
               </a>

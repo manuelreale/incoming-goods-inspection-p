@@ -4,6 +4,8 @@ import Cloud from "./Cloud"
 import Identification from "./Identification"
 import Movement from "./Movement"
 import Retrieval from "./Retrieval"
+import Inspection from "./Inspection"
+import Inspection2 from "./Inspection2"
 import RetrievedData from "./RetrievedData"
 import type { FSMState } from "./types";
 
@@ -22,6 +24,8 @@ export default function TopDisplay({ tag, state, animationState, children }: Top
             <Identification tag={tag} state={state} animationState={animationState}/>
             <Movement tag={tag} state={state} animationState={animationState}/>
             <Retrieval tag={tag} state={state} animationState={animationState}/>
+            <Inspection tag={tag} state={state} animationState={animationState}/>
+            <Inspection2 tag={tag} state={state} animationState={animationState}/>
             {children}
         </div>
     )
